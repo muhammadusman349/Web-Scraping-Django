@@ -15,3 +15,6 @@ app.config_from_object("django.conf:settings", namespace="CELERY")
 
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
+
+# command for celery server
+# celery -A cfehome worker --pool=solo -l info
