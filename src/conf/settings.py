@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_celery_beat',
     'django_celery_results',
+    'movies',
 ]
 
 MIDDLEWARE = [
@@ -140,4 +141,4 @@ CELERY_BROKER_URL = config("CELERY_BROKER_REDIS_URL", default="redis://localhost
 # CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_REDIS_URL", default="redis://localhost:6379")
 
 # this allows you to schedul items in the django admin
-CELERY_BEAT_SCHEDULER = "django_celery_beat.scheduler.DatabaseScheduler" 
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler" 
