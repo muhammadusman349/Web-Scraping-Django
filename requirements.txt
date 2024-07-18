@@ -6,3 +6,4 @@ python-decouple==3.8
 redis==5.0.7
 jupyter
 selenium
+channels
