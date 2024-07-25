@@ -145,10 +145,23 @@ CELERY_RESULT_BACKEND = "django-db"
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 # This configures redis as the datastore b/w Django +Celery
-CELERY_BROKER_URL = config("CELERY_BROKER_REDIS_URL", default="redis://localhost:6379")
+# CELERY_BROKER_URL = config("CELERY_BROKER_REDIS_URL", default="redis://localhost:6379")
 
 # if you out to use os.environ the config is:
 # CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_REDIS_URL", default="redis://localhost:6379")
 
 # this allows you to schedul items in the django admin
-CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler" 
+# CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler" 
+CELERY_BROKER_URL = "amqp://localhost:5672"
+
+CELERY_BEAT_SCHEDULE = {
+    # 'add-every-30-seconds': {
+    #     'task': 'movies.tasks.add',
+    #     'schedule': 30.0,
+    #     'args': (16, 16),  # Providing required arguments x and y
+    # },
+    # 'log-message-every-30-seconds': {
+    #     'task': 'movies.tasks.log_message',
+    #     'schedule': 30.0,
+    # },
+}
