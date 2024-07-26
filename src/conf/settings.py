@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_celery_results',
     'movies',
     'chat',
+    'post',
 ]
 
 ASGI_APPLICATION = 'conf.asgi.application'
