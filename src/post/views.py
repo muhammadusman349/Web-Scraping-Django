@@ -71,7 +71,6 @@ def post_update_view(request, slug):
     return render(request, 'posts/post_update.html', context)
 
 
-
 def post_delete_view(request, slug):
     post = get_object_or_404(Post, slug=slug)
     if request.method == "POST":
