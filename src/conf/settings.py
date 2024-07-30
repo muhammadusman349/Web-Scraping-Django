@@ -152,17 +152,46 @@ CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 # CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_REDIS_URL", default="redis://localhost:6379")
 
 # this allows you to schedul items in the django admin
-# CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler" 
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler" 
 CELERY_BROKER_URL = "amqp://localhost:5672"
 
-CELERY_BEAT_SCHEDULE = {
-    # 'add-every-30-seconds': {
-    #     'task': 'movies.tasks.add',
-    #     'schedule': 30.0,
-    #     'args': (16, 16),  # Providing required arguments x and y
-    # },
-    # 'log-message-every-30-seconds': {
-    #     'task': 'movies.tasks.log_message',
-    #     'schedule': 30.0,
-    # },
-}
+# CELERY_BEAT_SCHEDULE = {
+#     'add-every-30-seconds': {
+#         'task': 'movies.tasks.add',
+#         'schedule': 30.0,
+#         'args': (16, 16),  # Providing required arguments x and y
+#     },
+#     'log-message-every-30-seconds': {
+#         'task': 'movies.tasks.log_message',
+#         'schedule': 30.0,
+#     },
+# }
+
+
+#email configuration
+# EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
+
+
+SITE_NAME = 'django youtube tutorial'
+DOMAIN = 'localhost:8080'
+
+
+CELERY_EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'm.maher0044@gmail.com'
+EMAIL_HOST_PASSWORD = "qaqb fyme xkoo iogg"
+DEFAULT_FROM_EMAIL = 'm.maher0044@gmail.com'
+
+# # Email Config
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = config("EMAIL_HOST", default="smtp.gmail.com")
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+# EMAIL_HOST_USER = 'm.maher0044@gmail.com'
+# EMAIL_HOST_PASSWORD = "qaqb fyme xkoo iogg"
+# DEFAULT_FROM_EMAIL='m.maher0044@gmail.com'

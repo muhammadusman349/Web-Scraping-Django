@@ -3,6 +3,7 @@ from celery import shared_task
 from django.core.mail import EmailMessage
 from django.utils.crypto import get_random_string
 import string
+
 # create your tasks here...! 
 
 @shared_task
@@ -15,12 +16,12 @@ def create_multiple_customer(number_of_customer):
 
 @shared_task
 def send_background_email(subject, message, email_sender, recievers_list):
-    email_message=EmailMessage(
+    email_message = EmailMessage(
         subject=subject,
         body=message,
         from_email=email_sender,
         to=recievers_list
     )
-    email_message.content_subtype='html'
+    email_message.content_subtype = 'html'
     email_message.send()
     return "notification email sent successfully"
