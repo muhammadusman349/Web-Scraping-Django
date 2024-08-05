@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .tasks import log_message, add
+from .models import News
 
 def task_status(request):
     result = log_message.delay()
@@ -13,3 +14,9 @@ def task_view(request):
     context = {'res': res}
     return render(request, 'tasks/tasks.html', context)
 
+def news_home(request):
+    articles_list = News.objects.all()
+    context = {
+        "articles": articles_list
+    }
+    return render(request, "news/articles.html", context)
