@@ -202,7 +202,9 @@ CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 # this allows you to schedul items in the django admin
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler" 
 CELERY_BROKER_URL = "amqp://localhost:5672"
-
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = "UTC"
 # CELERY_BEAT_SCHEDULE = {
 #     'add-every-30-seconds': {
 #         'task': 'movies.tasks.add',
