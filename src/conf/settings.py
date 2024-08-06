@@ -43,10 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_celery_beat',
     'django_celery_results',
+<<<<<<< HEAD
     'rest_framework',
     'rest_framework_api_key',
     'rest_framework_simplejwt',
     'account',
+=======
+>>>>>>> 0570b3b3f14aafb924a7d5c5bd40ab0dacdc1fd2
     'news',
     'chat',
     'post',
