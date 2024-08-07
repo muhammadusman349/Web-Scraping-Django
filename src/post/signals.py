@@ -1,6 +1,6 @@
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-from django.contrib.auth.models import User
+from account.models import User
 from django.conf import settings
 from post.models import Post
 from django.template.loader import render_to_string

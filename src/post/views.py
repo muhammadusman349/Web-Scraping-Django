@@ -3,6 +3,7 @@ from django.urls import reverse
 from .models import Customer, Post
 from .forms import PostForm
 from .tasks import create_multiple_customer
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -38,12 +39,14 @@ def post_read_view(request, slug):
     }
     return render(request, "posts/post_get.html", context)
 
-
+@login_required
 def post_create_view(request):
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.user = request.user    
+            post.save()
             return redirect('post-home')
     else:
         form = PostForm()

@@ -50,3 +50,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return "%s" % (self.email)
+
+    @property
+    def name(self):
+        if self.first_name and self.last_name:
+            user_name = self.first_name + " " + self.last_name
+            return user_name
+        else:
+            return self.email

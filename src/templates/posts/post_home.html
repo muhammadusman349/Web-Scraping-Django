@@ -79,6 +79,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>User</th>
                     <th>Title</th>
                     <th>Actions</th>
                 </tr>
@@ -86,6 +87,7 @@
             <tbody>
                 {% for post in posts %}
                 <tr>
+                    <td>{{ post.user.name }}</td>
                     <td>{{ post.title }}</td>
                     <td>
                         {% if post.slug %}

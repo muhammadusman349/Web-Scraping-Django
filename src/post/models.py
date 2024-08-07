@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import Max
 from django.urls import reverse
 from django.utils.text import slugify
+from account.models import User
 # Create your models here.
 
 
@@ -14,6 +15,7 @@ class Customer(models.Model):
 
 
 class Post(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=255, unique=True,  blank=True)
     title = models.CharField(max_length=200)
     content = models.TextField()

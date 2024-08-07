@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from rest_framework.views import APIView
 from .serializers import SigninSerializer, SignupSerializer
-
+from .models import User
 
 class SignupView(APIView):
     permission_classes = []
@@ -21,7 +21,7 @@ class SigninView(APIView):
     permission_classes = []
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'signin.html')
+        return render(request, 'auth/signin.html')
 
     def post(self, request, *args, **kwargs):
         serializer = SigninSerializer(data=request.data)

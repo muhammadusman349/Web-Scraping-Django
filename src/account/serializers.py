@@ -22,8 +22,8 @@ class SignupSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         email = attrs.get('email', '')
-        request = self.context.get('request')
-        if request.method == "POST":
+        request = self.context.get('request', None)
+        if request and request.method == "POST":
             if User.objects.filter(email__iexact=email).exists():
                 return serializers.ValidationError(
                     'Email already exist! Please, try another email')
