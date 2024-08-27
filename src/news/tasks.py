@@ -1,13 +1,13 @@
 import logging
 import requests
-import lxml
 from celery import shared_task
 from .models import News
 from bs4 import BeautifulSoup
 from datetime import datetime
-from typing import List
+
 
 logger = logging.getLogger(__name__)
+
 
 @shared_task
 def log_message():
@@ -24,14 +24,15 @@ def send_article_to_db(articles_list):
     for article in articles_list:
         try:
             News.objects.create(
-                title = article['title'],
-                link = article['link'],
-                published = article['published'],
+                title=article['title'],
+                link=article['link'],
+                published=article['published'],
                 )
             count +=1
         except Exception as e:
             print(e)
             print("task failed an error occured")
+
 
 @shared_task(name="scrape_hacker_new_rss_feed")
 def scrape_hacker_new_rss_feed():

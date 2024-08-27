@@ -39,6 +39,7 @@ def post_read_view(request, slug):
     }
     return render(request, "posts/post_get.html", context)
 
+
 @login_required
 def post_create_view(request):
     if request.method == "POST":
@@ -66,7 +67,7 @@ def post_update_view(request, slug):
             return redirect(reverse('post-detail', args=[post.slug]))
     else:
         form = PostForm(instance=post)
-    
+
     context = {
         'form': form,
         'post': post,  # Ensure 'post' is included in the context

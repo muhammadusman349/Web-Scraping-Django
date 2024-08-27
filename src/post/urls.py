@@ -7,7 +7,6 @@ urlpatterns = [
     # path('', home_page, name="scraper"),
     path('generate-customer/', generate_random_customers, name="generate_customers"),
     path('customers-list/', display_customers, name="customers"),
-    
     path('posts/home/', post_home_view, name='post-home'),
     path('posts/<slug:slug>/', post_read_view, name='post-detail'),
     path('post/create/', post_create_view, name='post-create'),

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from rest_framework.views import APIView
 from .serializers import SigninSerializer, SignupSerializer
-from .models import User
+
 
 class SignupView(APIView):
     permission_classes = []
