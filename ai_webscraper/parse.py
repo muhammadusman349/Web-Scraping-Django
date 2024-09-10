@@ -10,7 +10,7 @@ template = (
     "4. **Direct Data Only:** Your output should contain only the data that is explicitly requested, with no other text."
 )
 
-model = OllamaLLM(model="llama3.1")
+model = OllamaLLM(model="phi3")
 # model = OllamaLLM(model="gemma2:2b")
 
 
