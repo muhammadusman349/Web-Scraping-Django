@@ -17,12 +17,5 @@ app.config_from_object("django.conf:settings", namespace="CELERY")
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
 
-app.conf.beat_schedule = {
-    'every_10_minutes': {
-        'task': 'scrape_hacker_new_rss_feed',
-        'schedule': crontab()
-
-    }
-}
 # command for celery server
 # celery -A conf worker --pool=solo -l info
