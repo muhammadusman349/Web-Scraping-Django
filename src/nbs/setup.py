@@ -1,9 +1,9 @@
 # https://www.codingforentrepreneurs.com/shorts/django-setup-for-use-in-jupyter-notebooks/
 import os, sys
 
-PWD = os.getenv("PWD") or os.getcwd()
+PWD = "C:/Users/Usman/My Projects/Web-Scraping-Django/src"
 DJANGO_PROJECT = os.environ.get("DJANGO_PROJECT") or "conf"
-DJANGO_ROOT_DIR =  os.environ.get("DJANGO_ROOT_DIR") or "src"
+DJANGO_ROOT_DIR = os.environ.get("DJANGO_ROOT_DIR") or "src"
 if not PWD.endswith(f"/{DJANGO_ROOT_DIR}"):
     # src is the django-root
     PWD = os.path.join(PWD, DJANGO_ROOT_DIR)
@@ -21,7 +21,7 @@ def init_django(project_name=None):
     dj_project_name = project_name or DJANGO_PROJECT
     if dj_project_name == None:
         raise Exception(PROJ_MISSING_MSG)
-    sys.path.insert(0, os.getenv('PWD'))
+    sys.path.insert(0, PWD)
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{project_name}.settings')
     os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
     import django
