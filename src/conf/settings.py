@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_celery_beat',
     'django_celery_results',
+    'products',
 ]
 
 ASGI_APPLICATION = 'conf.asgi.application'
