@@ -1,3 +1,4 @@
-from helpers.brightdatas import scrape
+from .amazon import extract_amazon_product_data
+from .brightdatas import scrape
 
-__all__ = ['scrape']
+__all__ = ['extract_amazon_product_data', 'scrape']
